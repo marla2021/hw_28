@@ -27,7 +27,7 @@ class User(models.Model):
     password = models.CharField(max_length=30)
     role = models.CharField(max_length=10, choices=ROLES, default="member")
     age = models.PositiveIntegerField()
-    location_id = models.ManyToManyField(Location)
+    location_id =models.ManyToManyField(Location)
 
     class Meta:
         verbose_name = "Пользователь"
@@ -47,7 +47,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
 class Ad(models.Model):
     name = models.CharField(max_length=30)
     author_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
@@ -63,5 +62,6 @@ class Ad(models.Model):
 
     def __str__(self):
         return self.name
+
 
 
